@@ -1,13 +1,16 @@
 import Project from "./Project";
-import projectData from "@/data/ProjectData";
 import Title from "./Title";
 
-const Projects = () => {
+const Projects = ({ title, data }) => {
+  const capitalizeString = (string) => {
+    return string[0].toUpperCase() + string.slice(1);
+  };
+
   return (
-    <div className="flex flex-col w-10/12">
-      <Title text="Projects" />
+    <div className="flex flex-col">
+      <Title text={capitalizeString(title)} />
       <div className="flex gap-x-1 border flex-nowrap overflow-x-auto overflow-y-hidden">
-        {projectData.map((project, index) => (
+        {data.map((project, index) => (
           <Project
             key={index}
             className=""
