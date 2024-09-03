@@ -1,7 +1,7 @@
 import Project from "./Project";
 import Title from "./Title";
 
-const Projects = ({ title, data }) => {
+const Projects = ({ title, data, color, border }) => {
   const capitalizeString = (string) => {
     return string[0].toUpperCase() + string.slice(1);
   };
@@ -9,7 +9,7 @@ const Projects = ({ title, data }) => {
   return (
     <div className="flex flex-col">
       <Title text={capitalizeString(title)} />
-      <div className="flex gap-x-1 border flex-nowrap overflow-x-auto overflow-y-hidden">
+      <div className="flex flex-nowrap overflow-x-auto overflow-y-hidden no-scrollbar">
         {data.map((project, index) => (
           <Project
             key={index}
@@ -18,6 +18,8 @@ const Projects = ({ title, data }) => {
             image={project.image}
             website={project.website}
             github={project.github}
+            color={color}
+            border={border}
           />
         ))}
       </div>
